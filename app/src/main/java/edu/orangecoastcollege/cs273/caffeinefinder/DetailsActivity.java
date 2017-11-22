@@ -1,6 +1,5 @@
 package edu.orangecoastcollege.cs273.caffeinefinder;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
@@ -8,7 +7,6 @@ import android.widget.TextView;
 public class DetailsActivity extends AppCompatActivity {
 private TextView nameofLocationTextView;
     private TextView AddressTextView;
-    private TextView CityTextView;
     private TextView PhoneNumberTextView;
     private TextView CoordinatesTextVIew;
     @Override
@@ -17,11 +15,11 @@ private TextView nameofLocationTextView;
         setContentView(R.layout.activity_details);
 
         nameofLocationTextView=(TextView) findViewById(R.id.nameOfLocation);
-        AddressTextView= (TextView) findViewById(R.id.locationListAddressTextView);
-        CityTextView= (TextView) findViewById(R.id.phoneNumber);
+        AddressTextView= (TextView) findViewById(R.id.AddressOfLocation);
+        PhoneNumberTextView= (TextView) findViewById(R.id.phoneNumber);
         CoordinatesTextVIew= (TextView) findViewById(R.id.Coordinates);
 
-        Intent intent= getIntent();
+
         Location location= getIntent().getExtras()
                 .getParcelable("selectedLocation");
 
@@ -29,8 +27,7 @@ private TextView nameofLocationTextView;
         String longitude= String.valueOf(location.getLongitude());
 
         nameofLocationTextView.setText(location.getName());
-        AddressTextView.setText(location.getAddress());
-        CityTextView.setText(location.getFullAddress());
+        AddressTextView.setText(location.getFullAddress());
         if(location.getLongitude()<0)
             lat+=" N ";
         else
@@ -40,6 +37,8 @@ private TextView nameofLocationTextView;
         else
             longitude+=" W ";
         CoordinatesTextVIew.setText(lat+longitude);
+
+        PhoneNumberTextView.setText(location.getPhone());
 
     }
 }

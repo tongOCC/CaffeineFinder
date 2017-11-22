@@ -83,6 +83,7 @@ public class CaffeineListActivity extends AppCompatActivity implements OnMapRead
         Location selectedLocation= (Location) selectedLayout.getTag();
         Intent detailsIntent= new Intent(this, DetailsActivity.class);
         detailsIntent.putExtra("selectedLocation", selectedLocation);
+        startActivity(detailsIntent);
 
     }
 

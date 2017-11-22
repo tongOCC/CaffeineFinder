@@ -80,7 +80,10 @@ public class CaffeineListActivity extends AppCompatActivity implements OnMapRead
     public void viewLocationDetails(View v)
     {
         LinearLayout selectedLayout= (LinearLayout) v;
-        Intent detailsIntent= new Intent(this, )
+        Location selectedLocation= (Location) selectedLayout.getTag();
+        Intent detailsIntent= new Intent(this, DetailsActivity.class);
+        detailsIntent.putExtra("selectedLocation", selectedLocation);
+
     }
 
     // TODO: (3) Implement the onMapReady method, which will add a special "marker" for our current location,
